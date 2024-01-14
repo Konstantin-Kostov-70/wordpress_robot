@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="index.html"><img src="http://localhost/my-project/wp-content/themes/softuni/assets/images/logo.png" alt="logo"></a>
+                        <a href="<?php echo get_home_url(); ?>"><img src="http://localhost/my-project/wp-content/themes/softuni/assets/images/logo.png" alt="logo"></a>
                     </div>
                     <div class="col-sm-3 col-sm-offset-3 text-right">
                         <span class="ion-android-cart"></span> 0 products
@@ -59,8 +59,16 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
+                <?php wp_nav_menu(array(
+                    'menu'            => 'primary_menu',
+                    'menu_id'         => 'site-nav-bar',
+                    'menu_class'      => 'nav navbar-nav',
+                    'theme_location'  => 'primary_menu',
+                    'container_class' => 'collapse navbar-collapse',
 
-                <div class="collapse navbar-collapse" id="site-nav-bar">
+                )); ?>
+
+                <!-- <div class="collapse navbar-collapse" id="site-nav-bar">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
@@ -68,6 +76,6 @@
                         <li class="active"><a href="faq.html">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
+                </div>/.navbar-collapse -->
             </nav>
         </div>

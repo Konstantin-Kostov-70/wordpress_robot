@@ -3,6 +3,9 @@
 /**
  * Never worry about cache again!
  */
+
+ add_theme_support( 'post-thumbnails' );
+
 function softunit_assets( $hook ) {
 	// create my own version codes
 	// $my_js_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'js/custom.js' ));
@@ -28,3 +31,49 @@ function softunit_assets( $hook ) {
 
 }
 add_action( 'wp_enqueue_scripts', 'softunit_assets' );
+
+function my_project_register_nav_menu() {
+    register_nav_menus( array(
+        'primary_menu'     => __( 'Primary menu', 'softuni' ),
+        'popular_services' => __( 'Popular Services', 'softuni' ),
+        'important_links'  => __( 'Important Links', 'softuni' ),
+        'lates_services'   => __( 'Latest_Services', 'softuni' ),
+    ) );
+}
+
+add_action('after_setup_theme', 'my_project_register_nav_menu');
+
+
+function softuni_register_sidebar() {
+    register_sidebar( array(
+		'id'            => 'footer-1',
+		'name'          => __('Footer 01'),
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+		'before_widget' => '<li id="%1$s" class="widget %2$s" style="list-style: none">',
+		'after_widget'  => '</li>',
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => '</h2>',
+	) );
+
+    register_sidebar( array(
+		'id'            => 'footer-2',
+		'name'          => __('Footer 02'),
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => '</h2>',
+	) );
+
+    register_sidebar( array(
+		'id'            => 'footer-3',
+		'name'          => __('Footer 03'),
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => '</h2>',
+	) );
+}
+
+add_action( 'widgets_init', 'softuni_register_sidebar' );
