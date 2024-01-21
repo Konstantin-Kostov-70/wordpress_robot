@@ -32,7 +32,7 @@
                             <?php the_content(); ?>
                         </div>
                         <div class="like-button">
-                            <a id="like" href="javascript:void(0)">Like me</a><span> display &#129302;</span>
+                            <a id="like" href="javascript:void(0)">Like me</a>
                         </div>
                     </div>
                 </div>
