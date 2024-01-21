@@ -6,7 +6,7 @@
 /sitemap.xml.gz
 
 # WordPress Core files and folders
-/index.php
+index.php
 /license.txt
 /readme.html
 /wp-activate.php
@@ -54,7 +54,6 @@ node_modules
 
 ### Plugins ###
 /wp-content/db.php
-
 ### Backups Files ###
 # List the backup files here
 
@@ -83,6 +82,7 @@ nbproject/
 .vscode
 
 # Anything else project related to be added here
-wp-content/plugins/wp-dummy-content-generator/
-wp-content/plugins/query-monitor/
-wp-content/themes/twentytwentyfour/
+/wp-content/plugins/wp-dummy-content-generator/
+/wp-content/plugins/query-monitor/
+/wp-content/plugins/akismet/
+/wp-content/themes/twentytwentyfour/
