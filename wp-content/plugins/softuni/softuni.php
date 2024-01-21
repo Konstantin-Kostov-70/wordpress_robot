@@ -29,18 +29,7 @@
  * root, if we need some
  */
 
-//  var_dump( 'test' ); die();
 
-/**
- * CPT - Robots - done
- * Custom taxonomy - done
- * Single view of the CPT - done
- * Show post meta and work with it
- * @TODO: Settings/Options page if we have time
- * @TODO: deploy the project in GitHub
- *
- * Upload this to GitHub
- */
 
 if ( ! defined( 'ROBOTS_INCLUDE' ) ) {
     define( 'ROBOTS_INCLUDE', plugin_dir_path( __FILE__ ) . 'includes'  );
@@ -48,3 +37,16 @@ if ( ! defined( 'ROBOTS_INCLUDE' ) ) {
 
 require ROBOTS_INCLUDE . '/functions.php';
 require ROBOTS_INCLUDE . '/cpt-robots.php';
+
+
+function su_robots_enqueue() {
+
+    wp_enqueue_script('robots_script', plugins_url( '/assets/js/script.js',__FILE__ ), array( 'jquery' ), 1.0 );
+
+    wp_localize_script( 'robots_script', 'my_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+ }
+ add_action( 'wp_enqueue_scripts', 'su_robots_enqueue' );
+
+
+
+

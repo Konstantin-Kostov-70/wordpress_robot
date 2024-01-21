@@ -32,7 +32,10 @@
                             <?php the_content(); ?>
                         </div>
                         <div class="like-button">
-                            <a id="like" href="javascript:void(0)">Like me</a>
+                            <a class="robots-like" 
+                               href="" 
+                               data-post-id="<?php echo get_the_ID(); ?>">Like me</a>
+                            <span class="like-span"><?php echo get_post_meta( get_the_ID(), 'likes', true) ?></span>
                         </div>
                     </div>
                 </div>
