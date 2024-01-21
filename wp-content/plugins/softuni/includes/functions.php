@@ -5,21 +5,21 @@
  * This function is short code
  */
 
-function emoji_shortcode( $atts, $emoji = null ) {
-    $atts = shortcode_atts(array(
-       'atts' => 'default',
+function custom_emoji( $atts, $emoji = null ) {
+    $emoji_atts = shortcode_atts(array(
+       'id' => '',
     ), 
-    $atts, 
-    'emoji');
+    $atts, );
 
     $emoji_values = array(
         'robot' => '&#129302;',
         'smile' => '&#128512',
-        'default' => '',
     );
 
-    $emoji = isset( $emoji_values[ $atts['atts'] ] ) ? $emoji_values[ $atts['atts'] ] : $emoji_values['default'];
+    if ( ! empty( $emoji_atts['id'] && array_key_exists( $emoji_atts['id'], $emoji_values ) ) ) {
+        $emoji = $emoji_values[$emoji_atts['id']];
+    }
 
 	return '<span class="caption">' . $emoji . '</span>';
 }
-add_shortcode( 'emoji', 'emoji_shortcode' );
+add_shortcode( 'emoji', 'custom_emoji' );
