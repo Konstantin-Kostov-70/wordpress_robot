@@ -1,22 +1,22 @@
 <?php get_header(); ?>
 
-        <div class="intro row">
-            <div class="overlay"></div>
-            <div class="col-sm-12">
-                <ol class="breadcrumb">
-                    <li><a href="<?php echo get_home_url( '/' ); ?>">Home</a></li>
-                    <li class="active"><?php the_title(); ?></li>
-                </ol>
-            </div>
-        </div> <!-- /.intro.row -->
-    </div> <!-- /.container -->
-    <div class="nutral"></div>
+<div class="intro row">
+    <div class="overlay"></div>
+    <div class="col-sm-12">
+        <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url('/'); ?>">Home</a></li>
+            <li class="active"><?php the_title(); ?></li>
+        </ol>
+    </div>
+</div> <!-- /.intro.row -->
+</div> <!-- /.container -->
+<div class="nutral"></div>
 </section> <!-- /#header -->
 
 <section class="faq">
-    <?php if ( have_posts() ) : ?>
+    <?php if (have_posts()) : ?>
 
-        <?php while ( have_posts() ) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); ?>
 
             <div class="container page-bgc">
                 <div class="row">
@@ -32,12 +32,19 @@
                             <?php the_content(); ?>
                         </div>
                         <div class="like-button">
-                            <a class="robots-like" 
-                               href="" 
-                               data-post-id="<?php echo get_the_ID(); ?>">Like me</a>
-                            <span class="like-span"><?php echo get_post_meta( get_the_ID(), 'likes', true) ?></span>
+                            <a class="robots-like" href="" data-post-id="<?php echo get_the_ID(); ?>">Like me</a>
+                            <span class="like-span"><?php echo get_post_meta(get_the_ID(), 'likes', true) ?></span>
                         </div>
                     </div>
+                </div>
+                <div class="related-post-wrapper">
+                    <h3>Related Posts</h3>
+                    <?php
+                    if (function_exists('robot_display_related_post')) {
+                        robot_display_related_post(get_the_ID());
+                       
+                    }
+                     ?>
                 </div>
             </div>
 
