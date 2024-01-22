@@ -7,6 +7,7 @@
 
 # WordPress Core files and folders
 index.php
+/pi.php
 /license.txt
 /readme.html
 /wp-activate.php
