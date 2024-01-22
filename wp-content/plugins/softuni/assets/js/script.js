@@ -12,10 +12,10 @@ jQuery(document).ready(async function ($) {
             url: my_ajax_object.ajax_url,
             data: {
                 action: 'robots_like', // PHP function
-                post_id// we need to make this dynamic
+                post_id // we need to make this dynamic
             },
             success: function (response) {
-               console.log(response);
+              
                $('.like-span').text(response);
             },
         });
