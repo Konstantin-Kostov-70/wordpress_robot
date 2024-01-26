@@ -1,7 +1,7 @@
 <?php
 // File for generic functions
 
-
+add_theme_support( 'post-thumbnails' );
 /**
  * This function is custom short code
  */
@@ -76,4 +76,41 @@ function robot_display_related_post($post_id = 0)
           <?php
         }
     }
+}
+
+function display_featured_robots_posts($post_per_page)
+{
+	if ( empty($post_per_page )) {
+		$post_per_page = 3;
+	}
+
+	$robots_query_args = array(
+       'post_type' => 'robot',
+       'post_status' => 'publish',
+       'post_per_page' => $post_per_page,
+       'meta_query' => array(
+         array(
+          'key' => 'is_featured',
+          'value' => 1,
+          'compare' => '='
+         ),
+       )
+	);
+
+	$robots_query = new WP_Query( $robots_query_args );
+
+    ?>
+    <?php if( $robots_query->have_posts()): ?>
+        <?php while($robots_query->have_posts()) : $robots_query->the_post()?>
+        <div class="col-sm-4">
+                <div class="porduct-box">
+                  <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive']); ?>
+                    <!-- <img class="img-responsive" src="http://localhost/my-project/wp-content/themes/softuni/assets/images/product-1.jpg" alt="product"> -->
+                    <a href="<?php echo get_permalink(); ?>"><h3 class="product-title"><?php the_title(); ?></h3></a>
+                </div>
+            </div>
+        <?php endwhile ?>
+      <?php endif ?>
+    <?php
+
 }
