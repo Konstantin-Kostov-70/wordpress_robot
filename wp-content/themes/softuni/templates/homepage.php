@@ -18,6 +18,8 @@
 
 <!-- Product -->
 
+
+
 <section id="product" class="product">
     <div class="container section-bg">
         <div class="row">
@@ -29,24 +31,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                <div class="porduct-box">
-                    <img class="img-responsive" src="http://localhost/my-project/wp-content/themes/softuni/assets/images/product-1.jpg" alt="product">
-                    <h3 class="product-title">Space robot</h3>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="porduct-box">
-                    <img class="img-responsive" src="http://localhost/my-project/wp-content/themes/softuni/assets/images/product-2.jpg" alt="product">
-                    <h3 class="product-title">Sports robot</h3>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="porduct-box">
-                    <img class="img-responsive" src="http://localhost/my-project/wp-content/themes/softuni/assets/images/product-3.jpg" alt="product">
-                    <h3 class="product-title">Toy for kids</h3>
-                </div>
-            </div>
+            <?php 
+             // Тhе part with the three robots
+             if (function_exists('display_featured_robots_posts')) {
+                display_featured_robots_posts(3);
+             }
+            ?>
         </div>
         <div class="row">
             <div class="col-sm-12">
